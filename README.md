@@ -1,12 +1,16 @@
 # README
-
 ### ⭐️ **Star this repository! It really motivates me to make better explanations and produce more work!!** ⭐️
 
 ## Overview
 
-This repository contains two distinct C programs that perform different tasks:
-1. `volume.c` - A program that adjusts the volume of audio samples in a file.
-2. `filter.c` - A program that applies various filters to BMP images, including grayscale, sepia, reflection, and blur.
+This repository contains C programs for different tasks:
+
+1. **Volume Adjustment**
+   - `volume.c`: Adjusts the volume of audio samples in a file.
+2. **Image Filtering**
+   - `filter.c`: Applies various filters to BMP images.
+   - `helpers.c` and `helpers.c`: Contains implementations of image filters.
+   - `helpers.h`: Header file for helper functions.
 
 ## Volume Adjustment Project
 
@@ -14,9 +18,7 @@ This repository contains two distinct C programs that perform different tasks:
 
 The `volume.c` program adjusts the volume of audio samples in a file by scaling their amplitude. This tool is useful for modifying the loudness of audio recordings.
 
-### File
-
-#### `volume.c`
+### File: `volume.c`
 
 **Purpose**
 
@@ -36,74 +38,83 @@ The `volume.c` program processes an audio file to increase or decrease its volum
 **Example**
 
 To compile and run the program, use the following commands:
-Image Filtering Project
-Overview
-This project involves implementing image filtering techniques for BMP files. The goal is to apply different filters to images, including grayscale, sepia, reflection, and blur. The project consists of several files:
+```bash
+make volume
+./volume input.wav output.wav 0.5
+```
 
-filter.c: The main program that handles user input and applies the selected filter to the image.
-helpers1.c and helpers2.c: Contain implementations of various image filters.
-helpers.h: Contains function prototypes for the helper functions used in helpers1.c and helpers2.c.
-Files and Their Descriptions
-filter.c
-Purpose
+## Image Filtering Project
 
-The filter.c program is responsible for applying filters to BMP images based on user input. It reads an image file, processes it according to the chosen filter, and writes the modified image to a new file.
+### Overview
 
-How it Works
+This project involves implementing image filtering techniques for BMP files. The goal is to apply different filters to images, including grayscale, sepia, reflection, and blur.
 
-Command-line Arguments: The program accepts command-line arguments to specify the filter to apply (-b for blur, -g for grayscale, -r for reflection, -s for sepia) and the input and output file paths.
-File Handling: It opens the input BMP file, verifies that it is a BMP file, and reads the image data into a 2D array.
-Filter Application: Based on the chosen filter, the program calls the appropriate function from helpers1.c or helpers2.c.
-Output: The processed image is written to the output file.
-Key Points
+## Files and Their Descriptions
 
-Command-line Interface: Provides flexibility to apply different filters.
-File Operations: Ensures correct handling of BMP file format and metadata.
-helpers1.c
-Purpose
+### `filter.c`
 
-The helpers1.c file contains implementations of specific image filters. It is designed to handle one set of filters.
+**Purpose**
 
-Functions
+The `filter.c` program applies filters to BMP images based on user input. It reads an image file, processes it according to the chosen filter, and writes the modified image to a new file.
 
-Grayscale: Converts an image to grayscale by averaging the red, green, and blue values of each pixel.
-Sepia: Applies a sepia tone to an image by adjusting the red, green, and blue values to give a vintage effect.
-Reflection: Reflects the image horizontally, creating a mirror image of the original.
-Key Points
+**How it Works**
 
-Image Manipulation: Implements basic image processing techniques.
-Filter Functions: Modular approach to applying different filters.
-helpers2.c
-Purpose
+- **Command-line Arguments**: Specifies the filter to apply (-b for blur, -g for grayscale, -r for reflection, -s for sepia) and the input and output file paths.
+- **File Handling**: Opens the input BMP file, verifies that it is a BMP file, and reads the image data into a 2D array.
+- **Filter Application**: Calls the appropriate function from `helpers1.c` or `helpers2.c`.
+- **Output**: Writes the processed image to the output file.
 
-The helpers2.c file also contains implementations of image filters, but with different or additional filtering methods compared to helpers1.c.
+**Key Points**
 
-Functions
+- **Command-line Interface**: Provides flexibility to apply different filters.
+- **File Operations**: Ensures correct handling of BMP file format and metadata.
 
-Blur: Applies a box blur to the image by averaging the pixel values in a defined box around each pixel.
-Additional Filters: Includes any extra filtering methods not present in helpers1.c.
-Key Points
+### `helpers.c`
 
-Advanced Filtering: Handles more complex image manipulation.
-Modularity: Separates different filtering methods into different files.
-helpers.h
-Purpose
+**Purpose**
 
-The helpers.h header file provides the function prototypes for the helper functions defined in helpers1.c and helpers2.c.
+The `helpers1.c` file contains implementations of specific image filters.
 
-Key Points
+**Functions**
 
-Function Prototypes: Declares the functions used for filtering images.
-Consistency: Ensures that the function signatures are consistent across different files.
-Usage
+- **Grayscale**: Converts an image to grayscale by averaging the red, green, and blue values of each pixel.
+- **Sepia**: Applies a sepia tone to an image by adjusting the red, green, and blue values to give a vintage effect.
+- **Reflection**: Reflects the image horizontally, creating a mirror image of the original.
 
-To compile and run the program, use the following commands:
+**Key Points**
 
-bash
-Copy code
-$ make filter
-$ ./filter -g images/yard.bmp out.bmp
-Credits
+- **Image Manipulation**: Implements basic image processing techniques.
+- **Filter Functions**: Modular approach to applying different filters.
+
+### `helpers.c`
+
+**Purpose**
+
+The `helpers2.c` file contains implementations of additional image filters.
+
+**Functions**
+
+- **Blur**: Applies a box blur to the image by averaging the pixel values in a defined box around each pixel.
+- **Additional Filters**: Includes extra filtering methods not present in `helpers1.c`.
+
+**Key Points**
+
+- **Advanced Filtering**: Handles more complex image manipulation.
+- **Modularity**: Separates different filtering methods into different files.
+
+### `helpers.h`
+
+**Purpose**
+
+The `helpers.h` header file provides function prototypes for the helper functions defined in `helpers.c` and `helpers.c`.
+
+**Key Points**
+
+- **Function Prototypes**: Declares the functions used for filtering images.
+- **Consistency**: Ensures that the function signatures are consistent across different files.
+
+## Credits
+
 <table>
   <tr>
     <td><img src="images/CS50x_logo.png" alt="CS50 Logo" width="800" height="300"></td>
